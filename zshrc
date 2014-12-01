@@ -12,13 +12,16 @@ antigen bundle git
 
 antigen bundle bundler
 antigen bundle rails
-antigen bundle rvm
+antigen bundle rake
 antigen bundle ruby
+antigen bundle rvm
 
 antigen bundle node
 antigen bundle npm
 
 antigen bundle heroku
+
+antigen bundle composer
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
