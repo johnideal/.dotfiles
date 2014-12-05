@@ -1,5 +1,7 @@
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+export NODE_PATH=/usr/local/lib/node_modules
+export EDITOR=mvim
 
 source /Users/johnjcorrigan/.dotfiles/antigen/antigen.zsh
 
