@@ -33,6 +33,14 @@
  " Bundle 'skalnik/vim-vroom'
  Bundle 'janx/vim-rubytest'
 
+ " Themes
+ Bundle 'zefei/cake16'
+ Bundle 'vim-scripts/desertEx'
+ Bundle 'chriskempson/vim-tomorrow-theme'
+ Bundle 'therubymug/vim-pyte'
+ Bundle 'marlun/vim-starwars'
+ Bundle 'altercation/vim-colors-solarized'
+
 
  " vim-scripts repos
  Bundle 'L9'
@@ -50,7 +58,8 @@
  " NOTE: comments after Bundle command are not allowed..
 
  " Colors, syntax, etc.
- colorscheme solarized
+ " colorscheme solarized
+ colorscheme pyte
  syntax enable
 
  " set background=dark
