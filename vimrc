@@ -59,7 +59,7 @@
 
  " Colors, syntax, etc.
  " colorscheme solarized
- colorscheme pyte
+ colorscheme desertEx
  syntax enable
 
  " set background=dark
