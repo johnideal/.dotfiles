@@ -56,3 +56,4 @@ set visualbell
 " Start without the toolbar
 set guioptions-=T
 
+set guifont=Monaco:h12
