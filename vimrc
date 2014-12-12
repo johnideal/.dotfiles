@@ -59,7 +59,8 @@
 
  " Colors, syntax, etc.
  " colorscheme solarized
- colorscheme desertEx
+ set background=dark
+ colorscheme solarized
  syntax enable
 
  " set background=dark
@@ -96,7 +97,7 @@ au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set f
 
 " md, markdown, and mk are markdown and define buffer-local preview
 au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,hbs} call s:setupMarkup()
-au BufRead,BufNewFile *.{hbs} set ft=html
+au BufRead,BufNewFile *.{hbs,twig} set ft=html
 
 " add json syntax highlighting
 au BufNewFile,BufRead *.json set ft=javascript
