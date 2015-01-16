@@ -16,3 +16,4 @@ alias jis1='ssh mint@109.107.36.1'
 export TERM=xterm
 export NODE_PATH=/usr/local/lib/node_modules
 export EDITOR=mvim
+export PATH=/usr/local/bin:$PATH
