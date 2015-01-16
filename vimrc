@@ -1,12 +1,16 @@
- set nocompatible               " be iMproved
- filetype off                   " required!
+:let mapleader = ","
 
- set rtp+=~/.vim/bundle/vundle/
- call vundle#rc()
+ set nocompatible              " be iMproved, required
+ filetype off                  " required
 
- " let Vundle manage Vundle
- " required!
- Bundle 'gmarik/vundle'
+ " set the runtime path to include Vundle and initialize
+ set rtp+=~/.vim/bundle/Vundle.vim
+ call vundle#begin()
+ " alternatively, pass a path where Vundle should install plugins
+ " call vundle#begin('~/some/path/here')
+
+ " let Vundle manage Vundle, required
+ Plugin 'gmarik/Vundle.vim'
 
  " My Bundles here:
  "
@@ -19,19 +23,16 @@
  Bundle 'kien/ctrlp.vim'
  Bundle 'ervandew/supertab'
  Bundle 'tpope/vim-surround'
- Bundle 'tpope/vim-bundler'
  Bundle 'mileszs/ack.vim'
  Bundle 'juvenn/mustache.vim'
  Bundle 'vim-ruby/vim-ruby'
  Bundle 'scrooloose/syntastic'
- Bundle 'Lokaltog/powerline.git'
- Bundle 'davidhalter/jedi-vim.git'
- Bundle 'StanAngeloff/php.vim'
- Bundle 'evidens/vim-twig'
  Bundle 'jeffkreeftmeijer/vim-numbertoggle'
  Bundle 'elzr/vim-json'
- " Bundle 'skalnik/vim-vroom'
- Bundle 'janx/vim-rubytest'
+ Bundle 'Shougo/vimfiler.vim'
+ Bundle 'Shougo/unite.vim'
+ Bundle 'thoughtbot/vim-rspec'
+ Bundle 'rking/ag.vim'
 
  " Themes
  Bundle 'zefei/cake16'
@@ -41,11 +42,7 @@
  Bundle 'marlun/vim-starwars'
  Bundle 'altercation/vim-colors-solarized'
 
-
- " vim-scripts repos
- Bundle 'L9'
- Bundle 'FuzzyFinder'
-
+ call vundle#end()            " required
  filetype plugin indent on     " required!
  "
  " Brief help
@@ -57,11 +54,14 @@
  " see :h vundle for more details or wiki for FAQ
  " NOTE: comments after Bundle command are not allowed..
 
+
  " Colors, syntax, etc.
  " colorscheme solarized
- set background=dark
- colorscheme solarized
+ set number
  syntax enable
+ set background=dark
+ let g:solarized_termcolors = 256
+ colorscheme solarized
 
  " set background=dark
  set number
@@ -177,3 +177,41 @@ autocmd BufWritePre * :%s/\s\+$//e
 
 " Two semicolons are easy to type.
 imap ;; <Esc>
+
+" VimFiler
+let g:vimfiler_as_default_explorer = 1
+map <Leader>f :call :VimFiler<CR>
+
+" Rspec
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
+let g:rspec_command = "!chruby-exec 2.1.3 -- bundle exec rspec {spec}"
+
+" Split navigation / configuration.
+
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" Setup some default ignores
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site|log)$',
+  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
+ \}
+
+ " Use the nearest .git directory as the cwd
+ " This makes a lot of sense if you are working on a project that is in
+ " version control. It also supports works with .svn, .hg, .bzr.
+let g:ctrlp_working_path_mode = 'r'
+
+" Use a leader instead of the actual named binding
+nmap <leader>p :CtrlP<cr>
+
+" Easy bindings for its various modes
+nmap <leader>bb :CtrlPBuffer<cr>
+nmap <leader>bm :CtrlPMixed<cr>
+nmap <leader>bs :CtrlPMRU<cr>
+
