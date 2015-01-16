@@ -1,9 +1,11 @@
 
-PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
 export NODE_PATH=/usr/local/lib/node_modules
-export EDITOR=mvim
+export EDITOR=vim
 
-source /Users/johnjcorrigan/.dotfiles/antigen/antigen.zsh
+source /Users/jcorrigan/.dotfiles/antigen/antigen.zsh
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
 
 # Load the oh-my-zsh's library.
 antigen use oh-my-zsh
@@ -23,8 +25,6 @@ antigen bundle npm
 
 antigen bundle heroku
 
-antigen bundle composer
-
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
 
@@ -35,3 +35,4 @@ alias ls='ls -a'
 
 # Tell antigen that you're done.
 antigen apply
+
