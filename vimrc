@@ -182,7 +182,7 @@ imap ;; <Esc>
 
 " VimFiler
 let g:vimfiler_as_default_explorer = 1
-map <Leader>f :call :VimFiler<CR>
+map <Leader>f :VimFiler<CR>
 
 " Rspec
 map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -216,4 +216,7 @@ nmap <leader>p :CtrlP<cr>
 nmap <leader>bb :CtrlPBuffer<cr>
 nmap <leader>bm :CtrlPMixed<cr>
 nmap <leader>bs :CtrlPMRU<cr>
+
+" :BufOnly
+nmap <leader>bo :BufOnly<cr>
 
