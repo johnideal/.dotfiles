@@ -33,6 +33,8 @@
  Bundle 'Shougo/unite.vim'
  Bundle 'thoughtbot/vim-rspec'
  Bundle 'rking/ag.vim'
+ Bundle 'vim-scripts/BufOnly.vim'
+ Bundle 'christoomey/vim-tmux-navigator'
 
  " Themes
  Bundle 'zefei/cake16'
