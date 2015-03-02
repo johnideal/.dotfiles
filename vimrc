@@ -35,6 +35,8 @@
  Bundle 'rking/ag.vim'
  Bundle 'vim-scripts/BufOnly.vim'
  Bundle 'christoomey/vim-tmux-navigator'
+ Bundle 'benmills/vimux'
+ Bundle 'mxw/vim-jsx'
 
  " Themes
  Bundle 'zefei/cake16'
@@ -53,8 +55,8 @@
  " :BundleSearch(!) foo - search(or refresh cache first) for foo
  " :BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
  "
- " see :h vundle for more details or wiki for FAQ
- " NOTE: comments after Bundle command are not allowed..
+ " see :h vundle for more details or wiki for FMQ
+ " NOTE: comments after Bundle command are not Mllowed..
 
 
  " Colors, syntax, etc.
@@ -189,14 +191,23 @@ map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
 map <Leader>a :call RunAllSpecs()<CR>
-let g:rspec_command = "!chruby-exec 2.1.3 -- bundle exec rspec {spec}"
+let g:rspec_command = 'call VimuxRunCommand("bundle exec rspec {spec}")'
 
 " Split navigation / configuration.
-
+" To navigate splits.
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" To move splits.
+nnoremap ∆ <C-W><S-J>
+nnoremap ˚ <C-W><S-K>
+nnoremap ¬ <C-W><S-L>
+nnoremap ˙ <C-W><S-H>
+
+" Global resize.
+nnoremap <Leader>= <C-W>=
 
 " Setup some default ignores
 let g:ctrlp_custom_ignore = {
@@ -220,3 +231,5 @@ nmap <leader>bs :CtrlPMRU<cr>
 " :BufOnly
 nmap <leader>bo :BufOnly<cr>
 
+" vim-jsx
+let g:jsx_ext_required = 0
