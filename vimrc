@@ -233,3 +233,7 @@ nmap <leader>bo :BufOnly<cr>
 
 " vim-jsx
 let g:jsx_ext_required = 0
+
+" Insert line
+nmap <S-Enter> O<Esc>
+nmap <CR> o<Esc>
