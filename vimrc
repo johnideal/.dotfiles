@@ -37,6 +37,8 @@
  Bundle 'christoomey/vim-tmux-navigator'
  Bundle 'benmills/vimux'
  Bundle 'mxw/vim-jsx'
+ Bundle 'dyng/ctrlsf.vim'
+ Bundle 'terryma/vim-multiple-cursors'
 
  " Themes
  Bundle 'zefei/cake16'
@@ -45,6 +47,7 @@
  Bundle 'therubymug/vim-pyte'
  Bundle 'marlun/vim-starwars'
  Bundle 'altercation/vim-colors-solarized'
+ Bundle 'reedes/vim-colors-pencil'
 
  call vundle#end()            " required
  filetype plugin indent on     " required!
@@ -63,9 +66,10 @@
  " colorscheme solarized
  set number
  syntax enable
- set background=dark
+ set background=light
  let g:solarized_termcolors = 256
- colorscheme solarized
+ colorscheme pencil
+ let g:pencil_higher_contrast_ui = 1
 
  " set background=dark
  set number
@@ -104,7 +108,7 @@ au BufRead,BufNewFile *.{md,markdown,mdown,mkd,mkdn,hbs} call s:setupMarkup()
 au BufRead,BufNewFile *.{hbs,twig} set ft=html
 
 " add json syntax highlighting
-au BufNewFile,BufRead *.json set ft=javascript
+au BufNewFile,BufRead *.{json,jsx} set ft=javascript
 
 au BufRead,BufNewFile *.txt call s:setupWrapping()
 
@@ -179,12 +183,10 @@ command! PrettyXML call DoPrettyXML()
 " Remove whitespace at the end of lines.
 autocmd BufWritePre * :%s/\s\+$//e
 
-" Two semicolons are easy to type.
-imap ;; <Esc>
-
 " VimFiler
 let g:vimfiler_as_default_explorer = 1
 map <Leader>f :VimFiler<CR>
+map <Leader>e :VimFilerBufferDir<CR>
 
 " Rspec
 map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -237,3 +239,8 @@ let g:jsx_ext_required = 0
 " Insert line
 nmap <S-Enter> O<Esc>
 nmap <CR> o<Esc>
+
+set list
+
+" remap absolute number line toggle
+let g:NumberToggleTrigger = '<C-a>'
