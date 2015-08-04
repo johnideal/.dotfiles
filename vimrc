@@ -39,6 +39,9 @@
  Bundle 'mxw/vim-jsx'
  Bundle 'dyng/ctrlsf.vim'
  Bundle 'terryma/vim-multiple-cursors'
+ Bundle 'bling/vim-airline'
+ Bundle 'edkolev/tmuxline.vim'
+ Bundle 'tpope/vim-endwise'
 
  " Themes
  Bundle 'zefei/cake16'
@@ -244,3 +247,5 @@ set list
 
 " remap absolute number line toggle
 let g:NumberToggleTrigger = '<C-a>'
+
+inoremap <silent> <Esc> <C-O>:stopinsert<CR>
