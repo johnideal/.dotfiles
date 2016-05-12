@@ -29,7 +29,7 @@
  Bundle 'scrooloose/syntastic'
  Bundle 'jeffkreeftmeijer/vim-numbertoggle'
  Bundle 'elzr/vim-json'
- Bundle 'Shougo/vimfiler.vim'
+ "Bundle 'Shougo/vimfiler.vim'
  Bundle 'Shougo/unite.vim'
  Bundle 'thoughtbot/vim-rspec'
  Bundle 'rking/ag.vim'
@@ -42,6 +42,9 @@
  Bundle 'bling/vim-airline'
  Bundle 'edkolev/tmuxline.vim'
  Bundle 'tpope/vim-endwise'
+ Bundle 'scrooloose/nerdtree'
+ Bundle 'wincent/Command-T'
+ Bundle 'hashivim/vim-terraform'
 
  " Themes
  Bundle 'zefei/cake16'
@@ -129,6 +132,7 @@ set backspace=indent,eol,start
 " Enable syntastic syntax checking
 let g:syntastic_enable_signs=1
 let g:syntastic_quiet_messages = {'level': 'warnings'}
+let g:syntastic_javascript_checkers = ['jsxhint']
 
 " Use modeline overrides
 set modeline
@@ -186,10 +190,10 @@ command! PrettyXML call DoPrettyXML()
 " Remove whitespace at the end of lines.
 autocmd BufWritePre * :%s/\s\+$//e
 
-" VimFiler
-let g:vimfiler_as_default_explorer = 1
-map <Leader>f :VimFiler<CR>
-map <Leader>e :VimFilerBufferDir<CR>
+" Nerdtree
+"let g:vimfiler_as_default_explorer = 1
+map <Leader>e :NERDTreeFind<CR>
+map <Leader>f :NERDTreeToggle<CR>
 
 " Rspec
 map <Leader>t :call RunCurrentSpecFile()<CR>
