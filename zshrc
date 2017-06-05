@@ -1,5 +1,5 @@
 
-PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=/usr/local/bin:$PATH:$HOME/.rvm/bin:$HOME/miniconda3/bin # Add RVM to PATH for scripting
 export NODE_PATH=/usr/local/lib/node_modules
 export EDITOR=vim
 export VAGRANT_DEFAULT_PROVIDER=vmware_fusion
@@ -50,3 +50,18 @@ dcr () {
 # Tell antigen that you're done.
 antigen apply
 
+function docker-clean() {
+  for container in $(docker ps -aqf status=exited); do
+    docker rm -v $container
+  done
+  for container in $(docker ps -aqf status=created); do
+    docker rm -v $container
+  done
+  for image in $(docker images -qf dangling=true); do
+    docker rmi $image
+  done
+}
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
